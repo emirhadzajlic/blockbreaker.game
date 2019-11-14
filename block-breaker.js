@@ -41,7 +41,7 @@ let canvas=document.getElementById("canvas");
  function drawBall(){
      ctx.beginPath();
      ctx.arc(x,y,ballRadius,0,Math.PI*2);
-     ctx.fillStyle="#0095DD";
+     ctx.fillStyle="#FF0000";
      ctx.fill();
      ctx.closePath();
  }
@@ -49,7 +49,7 @@ let canvas=document.getElementById("canvas");
 function drawPaddle(){
     ctx.beginPath();
     ctx.rect(paddleX,canvas.height-paddleHeight,paddleWidth,paddleHeight);
-    ctx.fillStyle="#0095DD";
+    ctx.fillStyle="#696969";
     ctx.fill();
     ctx.closePath();
 }
@@ -62,7 +62,7 @@ function drawBricks(){
                  bricks[c][r].y = r * (brickHeight + brickPadding) + brickOffsetTop;
              ctx.beginPath();
             ctx.rect(bricks[c][r].x,bricks[c][r].y, brickWidth, brickHeight);
-            ctx.fillStyle="#0095DD";
+            ctx.fillStyle="#696969";
             ctx.fill();
             ctx.closePath();
             }
@@ -80,7 +80,7 @@ function collisionDetection(){
                     b.status=0;
                     score++;
                     if(score === brickColumnCount*brickRowCount){
-                        alert("You win the game!");
+                        alert("You won the game!");
                         document.location.reload();
                     }
                 }
@@ -91,7 +91,7 @@ function collisionDetection(){
 
 function drawScore(){
     ctx.font = "16px Arial";
-    ctx.fillStyle = "red";
+    ctx.fillStyle = "cyan";
     ctx.fillText("Score:"+score,8,20);
 }
 
